@@ -10,7 +10,7 @@ const config = {
   testDir: './tests',
 
   /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
+  timeout: 50 * 1000,
 
   expect: {
 
@@ -31,7 +31,7 @@ const config = {
   workers: process.env.CI ? 1 : undefined,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [ ['html', { outputFolder: 'my-report' }] ],
+  reporter: [ ['html', { outputFolder: 'playwright-report' }] ],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -45,7 +45,7 @@ const config = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
     video: 'on',
-    screenshot: 'on',
+    screenshot: 'only-on-failure',
     
   },
 

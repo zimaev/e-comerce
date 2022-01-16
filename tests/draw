@@ -1,0 +1,63 @@
+const { test, expect } = require('@playwright/test');
+
+
+test('test', async ({ page }) => {
+
+  
+
+   
+
+  // Click button:has-text("Sign in")
+  await page.click('button:has-text("Sign in")');
+  await expect(page).toHaveURL('http://automationpractice.com/index.php?controller=my-account');
+
+  // Click img[alt="My Store"]
+  await page.click('img[alt="My Store"]');
+  await expect(page).toHaveURL('http://automationpractice.com/index.php');
+
+  // Click text=More
+  await page.click('text=More');
+  await expect(page).toHaveURL('http://automationpractice.com/index.php?id_product=1&controller=product');
+
+  // Go to http://automationpractice.com/index.php?controller=order
+  await page.goto('http://automationpractice.com/index.php?controller=order');
+
+  // Click #center_column >> text=Proceed to checkout
+  await page.click('#center_column >> text=Proceed to checkout');
+  await expect(page).toHaveURL('http://automationpractice.com/index.php?controller=order&step=1');
+
+  // Click button:has-text("Proceed to checkout")
+  await page.click('button:has-text("Proceed to checkout")');
+  await expect(page).toHaveURL('http://automationpractice.com/index.php?controller=order');
+
+  // Click button:has-text("Proceed to checkout")
+  await page.click('button:has-text("Proceed to checkout")');
+
+  // Click .fancybox-item
+  await page.click('.fancybox-item');
+
+  // Check input[name="cgv"]
+  await page.check('input[name="cgv"]');
+
+  // Click button:has-text("Proceed to checkout")
+  await page.click('button:has-text("Proceed to checkout")');
+  await expect(page).toHaveURL('http://automationpractice.com/index.php?controller=order&multi-shipping=');
+
+  // Click text=Pay by check (order processing will be longer)
+  await page.click('text=Pay by check (order processing will be longer)');
+  await expect(page).toHaveURL('http://automationpractice.com/index.php?fc=module&module=cheque&controller=payment');
+
+  // Go to http://automationpractice.com/index.php?controller=order-confirmation&id_cart=4184751&id_module=30&id_order=396802&key=8feb0465136471ce69b2a4044ff1371d
+  await page.goto('http://automationpractice.com/index.php?controller=order-confirmation&id_cart=4184751&id_module=30&id_order=396802&key=8feb0465136471ce69b2a4044ff1371d');
+
+  // Click text=Your order on My Store is complete.
+  await page.click('text=Your order on My Store is complete.');
+
+  // Click text=Your check must include: - Payment amount. $18.51 - Payable to the order of prad
+  await page.click('text=Your check must include: - Payment amount. $18.51 - Payable to the order of prad');
+
+  // Click img[alt="My Store"]
+  await page.click('img[alt="My Store"]');
+  await expect(page).toHaveURL('http://automationpractice.com/index.php');
+
+});

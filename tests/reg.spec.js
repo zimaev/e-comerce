@@ -1,4 +1,3 @@
-// @ts-check
 const { test, expect } = require('@playwright/test');
 
 
@@ -57,9 +56,6 @@ test('Региcтрация нового клиента', async ({ page }) => {
         await page.selectOption('select[name="years"]', '1985');
     })
     await test.step('Адрес', async () => {
-        
-
-
         // Click input[name="firstname"]
         await page.click('input[name="firstname"]');
         await page.fill('input[name="firstname"]', 'Anton');
